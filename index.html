@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOTOPX.COM | Minimalist AI-Blockchain Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyber-black: #0a0a0f;
+            --neural-blue: #00d9ff;
+            --protocol-purple: #9d00ff;
+            --minimal-white: #f0f0f0;
+            --grid-gray: #1a1a2e;
+            --accent-orange: #ff5e00;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--cyber-black);
+            color: var(--minimal-white);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* 简约网格背景 */
+        .minimal-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--grid-gray) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-gray) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        /* 协议光晕 */
+        .protocol-glow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vh;
+            height: 80vh;
+            background: radial-gradient(circle, rgba(157, 0, 255, 0.05) 0%, transparent 70%);
+            z-index: -1;
+            animation: glowPulse 8s infinite alternate;
+        }
+        
+        @keyframes glowPulse {
+            0% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
+        }
+        
+        /* 主容器 */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* 极简头部 */
+        .header {
+            text-align: center;
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+            margin-bottom: 3rem;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        
+        .logo-bot {
+            color: var(--neural-blue);
+            display: inline-block;
+            animation: botFloat 4s infinite ease-in-out;
+        }
+        
+        .logo-op {
+            color: var(--minimal-white);
+            display: inline-block;
+        }
+        
+        .logo-x {
+            color: var(--accent-orange);
+            display: inline-block;
+            animation: xPulse 3s infinite alternate;
+        }
+        
+        @keyframes botFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        @keyframes xPulse {
+            0% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+        
+        .domain-stats {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: rgba(240, 240, 240, 0.6);
+            letter-spacing: 1px;
+            margin-top: 1rem;
+        }
+        
+        /* 核心公式 */
+        .core-formula {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+        }
+        
+        .formula {
+            font-size: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(26, 26, 46, 0.5);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--neural-blue);
+            border-right: 3px solid var(--protocol-purple);
+        }
+        
+        .formula-part {
+            padding: 0.3rem 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .bot-part {
+            color: var(--neural-blue);
+        }
+        
+        .op-part {
+            color: var(--minimal-white);
+        }
+        
+        .x-part {
+            color: var(--accent-orange);
+        }
+        
+        .formula-plus {
+            margin: 0 0.5rem;
+            opacity: 0.5;
+        }
+        
+        /* 协议部分 */
+        .protocol-section {
+            margin: 3rem 0;
+            padding: 2.5rem;
+            background: rgba(26, 26, 46, 0.4);
+            border-radius: 12px;
+            border: 1px solid rgba(157, 0, 255, 0.1);
+            position: relative;
+        }
+        
+        .protocol-section::before {
+            content: 'X402';
+            position: absolute;
+            top: -12px;
+            left: 2rem;
+            background: var(--protocol-purple);
+            color: var(--minimal-white);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            padding: 0.3rem 1rem;
+            border-radius: 12px;
+            letter-spacing: 2px;
+        }
+        
+        .protocol-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--neural-blue);
+        }
+        
+        .protocol-desc {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(240, 240, 240, 0.8);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* 简约功能网格 */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 4rem 0;
+        }
+        
+        .feature {
+            padding: 2rem;
+            background: rgba(26, 26, 46, 0.3);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            border-color: var(--neural-blue);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--neural-blue);
+        }
+        
+        .feature-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--minimal-white);
+        }
+        
+        .feature-desc {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(240, 240, 240, 0.6);
+        }
+        
+        /* 简约价格部分 */
+        .pricing {
+            margin: 4rem 0;
+            padding: 2.5rem;
+            background: rgba(10, 10, 15, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 94, 0, 0.2);
+            text-align: center;
+        }
+        
+        .price-tag {
+            margin-bottom: 2rem;
+        }
+        
+        .total-price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+            margin-bottom: 0.5rem;
+        }
+        
+        .price-note {
+            font-size: 0.9rem;
+            color: rgba(240, 240, 240, 0.5);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* 三期付款 */
+        .payment-plan {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .payment-phase {
+            padding: 1.5rem;
+            background: rgba(26, 26, 46, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 217, 255, 0.1);
+        }
+        
+        .phase-number {
+            font-size: 0.9rem;
+            color: var(--neural-blue);
+            margin-bottom: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .phase-amount {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--minimal-white);
+            margin-bottom: 0.5rem;
+        }
+        
+        .phase-desc {
+            font-size: 0.8rem;
+            color: rgba(240, 240, 240, 0.5);
+        }
+        
+        /* CTA按钮 */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--neural-blue), var(--protocol-purple));
+            color: var(--cyber-black);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1rem 3rem;
+            border-radius: 6px;
+            text-decoration: none;
+            letter-spacing: 1px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 217, 255, 0.2);
+        }
+        
+        /* 联系方式 */
+        .contact-section {
+            margin: 4rem 0;
+            padding: 2.5rem;
+            background: rgba(26, 26, 46, 0.4);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 94, 0, 0.1);
+            text-align: center;
+        }
+        
+        .contact-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--neural-blue);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .contact-email {
+            font-size: 1.3rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-orange);
+            background: rgba(255, 94, 0, 0.1);
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            display: inline-block;
+            margin: 1rem 0;
+            text-decoration: none;
+            border: 1px solid rgba(255, 94, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .contact-email:hover {
+            background: rgba(255, 94, 0, 0.2);
+            transform: scale(1.02);
+        }
+        
+        .contact-note {
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: rgba(240, 240, 240, 0.4);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* 极简页脚 */
+        .footer {
+            margin-top: 5rem;
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(26, 26, 46, 0.8);
+            color: rgba(240, 240, 240, 0.3);
+        }
+        
+        .footer-info {
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: rgba(0, 217, 255, 0.1);
+            color: var(--neural-blue);
+            border-radius: 12px;
+            font-size: 0.7rem;
+            margin-left: 1rem;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .logo {
+                font-size: 3rem;
+            }
+            
+            .payment-plan {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-email {
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+                word-break: break-all;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="minimal-grid"></div>
+    <div class="protocol-glow"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-bot">BOT</span><span class="logo-op">OP</span><span class="logo-x">X</span>
+            </div>
+            <div class="domain-stats">
+                6-CHAR DOMAIN • BOT + OP + X • AI-BLOCKCHAIN PROTOCOL
+            </div>
+        </header>
+        
+        <main>
+            <section class="core-formula">
+                <div class="formula">
+                    <span class="formula-part bot-part">BOT</span>
+                    <span class="formula-plus">+</span>
+                    <span class="formula-part op-part">OPTIMIZATION</span>
+                    <span class="formula-plus">+</span>
+                    <span class="formula-part x-part">X402</span>
+                </div>
+            </section>
+            
+            <section class="protocol-section">
+                <div class="protocol-title">MINIMALIST AI-BLOCKCHAIN INTERFACE</div>
+                <div class="protocol-desc">
+                    BOTOPX represents the convergence of autonomous trading agents, 
+                    blockchain optimization protocols, and the X402 execution layer. 
+                    A 6-character domain for maximum brand efficiency in the AI-blockchain era.
+                </div>
+            </section>
+            
+            <section class="features">
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">MINIMAL OVERHEAD</div>
+                    <div class="feature-desc">
+                        6-character domain reduces cognitive load and increases brand recall. 
+                        Perfect for AI agents and blockchain protocols requiring minimal latency.
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔗</div>
+                    <div class="feature-title">X402 READY</div>
+                    <div class="feature-desc">
+                        Pre-configured for X402 protocol integration. 
+                        Enables trustless AI execution and on-chain optimization.
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <div class="feature-title">BOT-FIRST DESIGN</div>
+                    <div class="feature-desc">
+                        Domain structure optimized for AI recognition and parsing. 
+                        Designed for the age of autonomous trading agents.
+                    </div>
+                </div>
+            </section>
+            
+            <section class="pricing">
+                <div class="price-tag">
+                    <div class="total-price">$16,800</div>
+                    <div class="price-note">STRATEGIC PRICING FOR 6-CHAR .COM DOMAIN</div>
+                </div>
+                
+                <div class="price-note" style="margin-bottom: 1.5rem;">
+                    3-PHASE PAYMENT PLAN AVAILABLE (SIMPLIFIED EXECUTION)
+                </div>
+                
+                <div class="payment-plan">
+                    <div class="payment-phase">
+                        <div class="phase-number">PHASE 01</div>
+                        <div class="phase-amount">$5,600</div>
+                        <div class="phase-desc">Initial transfer & domain lock</div>
+                    </div>
+                    <div class="payment-phase">
+                        <div class="phase-number">PHASE 02</div>
+                        <div class="phase-amount">$5,600</div>
+                        <div class="phase-desc">Protocol configuration</div>
+                    </div>
+                    <div class="payment-phase">
+                        <div class="phase-number">PHASE 03</div>
+                        <div class="phase-amount">$5,600</div>
+                        <div class="phase-desc">Final transfer & documentation</div>
+                    </div>
+                </div>
+                
+                <button class="cta-button" id="acquireButton">
+                    INITIATE ACQUISITION
+                </button>
+            </section>
+            
+            <section class="contact-section" id="contact">
+                <div class="contact-title">PROTOCOL COMMUNICATION CHANNEL</div>
+                <div class="contact-email" id="emailDisplay">
+                    JOSHUA369X@GMAIL.COM
+                </div>
+                <div class="contact-note">
+                    ENCRYPTED • 24H RESPONSE • MINIMAL PROTOCOL
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <div class="footer-info">
+                BOTOPX.COM | AI-BLOCKCHAIN MINIMALIST PROTOCOL
+                <span class="status-badge">X402 ACTIVE</span>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // 简约的交互效果
+        const acquireButton = document.getElementById('acquireButton');
+        const emailDisplay = document.getElementById('emailDisplay');
+        
+        // 按钮交互
+        acquireButton.addEventListener('click', function() {
+            const originalText = this.textContent;
+            this.textContent = 'CONNECTING TO X402...';
+            this.style.background = 'linear-gradient(90deg, var(--protocol-purple), var(--accent-orange))';
+            
+            setTimeout(() => {
+                this.textContent = 'INITIATING 3-PHASE PROTOCOL...';
+                
+                setTimeout(() => {
+                    window.location.href = 'mailto:joshua369x@gmail.com?subject=Botopx.com%20Domain%20Acquisition&body=I%27m%20interested%20in%20acquiring%20Botopx.com%20for%20%2416,800%20via%20the%203-phase%20payment%20plan.%20Please%20provide%20details.';
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.style.background = 'linear-gradient(90deg, var(--neural-blue), var(--protocol-purple))';
+                    }, 2000);
+                }, 1000);
+            }, 1000);
+        });
+        
+        // 邮箱复制功能
+        emailDisplay.addEventListener('click', function() {
+            const originalText = this.textContent;
+            this.textContent = 'COPIED TO CLIPBOARD ✓';
+            this.style.background = 'rgba(0, 255, 136, 0.2)';
+            this.style.color = '#00ff88';
+            
+            navigator.clipboard.writeText('joshua369x@gmail.com').then(() => {
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.background = 'rgba(255, 94, 0, 0.1)';
+                    this.style.color = 'var(--accent-orange)';
+                }, 1500);
+            });
+        });
+        
+        // 简约的键盘快捷键
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'x' || e.key === 'X') {
+                // 添加简约的视觉反馈
+                document.querySelector('.logo-x').style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    document.querySelector('.logo-x').style.transform = 'scale(1)';
+                }, 300);
+            }
+        });
+        
+        // 页面加载效果
+        window.addEventListener('load', () => {
+            document.querySelector('.logo').style.opacity = '1';
+            document.querySelector('.logo').style.transform = 'translateY(0)';
+            
+            // 延迟显示特性卡片
+            const features = document.querySelectorAll('.feature');
+            features.forEach((feature, index) => {
+                setTimeout(() => {
+                    feature.style.opacity = '1';
+                    feature.style.transform = 'translateY(0)';
+                }, 200 + index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
