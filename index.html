@@ -3,601 +3,424 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOTOPX.COM | Minimalist AI-Blockchain Protocol</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <!-- SEO Optimization -->
+    <title>BotopX.com | Premium AI, Web3 & Robotics Domain for Sale</title>
+    <meta name="description" content="Secure BotopX.com - The ultimate domain for Bot Operations, Top Tier Robotics, and Web3 X-functionality. Perfect for AI agents, decentralized networks, and automation.">
+    <meta name="keywords" content="BotopX, AI domain, Web3 domain, Robotics URL, Bot Operations, Buy Domain, Premium Domains, Spaceship">
+    <meta name="author" content="BotopX Seller">
+    <meta property="og:title" content="BotopX.com is for Sale">
+    <meta property="og:description" content="Acquire the future of Bot Operations. $1,800 USD. Installment plans available.">
+    <meta property="og:type" content="website">
+
     <style>
         :root {
-            --cyber-black: #0a0a0f;
-            --neural-blue: #00d9ff;
-            --protocol-purple: #9d00ff;
-            --minimal-white: #f0f0f0;
-            --grid-gray: #1a1a2e;
-            --accent-orange: #ff5e00;
+            --primary: #00f3ff;
+            --secondary: #bc13fe;
+            --accent: #ffe600;
+            --bg: #050510;
+            --glass: rgba(255, 255, 255, 0.05);
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         
         body {
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: var(--cyber-black);
-            color: var(--minimal-white);
-            min-height: 100vh;
+            background-color: var(--bg);
+            color: #fff;
             overflow-x: hidden;
         }
-        
-        /* 简约网格背景 */
-        .minimal-grid {
-            position: fixed;
+
+        /* --- Header & Typography Effects --- */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+            text-align: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Effect 1: Botop - Cyber Glitch */
+        .text-botop {
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary);
+            animation: glitch 3s infinite;
+            position: relative;
+        }
+        @keyframes glitch {
+            0% { transform: skew(0deg); opacity: 1; }
+            5% { transform: skew(10deg); opacity: 0.8; }
+            10% { transform: skew(-10deg); opacity: 1; }
+            15% { transform: skew(0deg); }
+            100% { transform: skew(0deg); }
+        }
+
+        /* Effect 2: X - High Energy Pulse */
+        .text-x {
+            color: var(--secondary);
+            font-size: 1.2em; /* Larger X */
+            text-shadow: 0 0 20px var(--secondary), 0 0 40px var(--secondary);
+            animation: pulseX 1.5s ease-in-out infinite alternate;
+        }
+        @keyframes pulseX {
+            0% { transform: scale(1); text-shadow: 0 0 20px var(--secondary); }
+            100% { transform: scale(1.1); text-shadow: 0 0 50px var(--secondary), 0 0 10px #fff; }
+        }
+
+        /* Effect 3: .com - Digital Typewriter */
+        .text-com {
+            color: #888;
+            font-size: 0.5em;
+            border-right: 2px solid #888;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(4) infinite, blink .75s step-end infinite;
+            display: inline-block;
+            width: 1.8em; /* Approximate width */
+        }
+        @keyframes typing {
+            0%, 50% { width: 0; }
+            70%, 100% { width: 1.8em; }
+        }
+        @keyframes blink { from, to { border-color: transparent } 50% { border-color: #888; } }
+
+        /* --- Particle Robot Canvas --- */
+        #robotCanvas {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(var(--grid-gray) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-gray) 1px, transparent 1px);
-            background-size: 60px 60px;
             z-index: -1;
-            opacity: 0.1;
+            opacity: 0.6;
         }
-        
-        /* 协议光晕 */
-        .protocol-glow {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80vh;
-            height: 80vh;
-            background: radial-gradient(circle, rgba(157, 0, 255, 0.05) 0%, transparent 70%);
-            z-index: -1;
-            animation: glowPulse 8s infinite alternate;
-        }
-        
-        @keyframes glowPulse {
-            0% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-            100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
-        }
-        
-        /* 主容器 */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
+
+        /* --- Pricing & CTA --- */
+        .pricing-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
             padding: 2rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* 极简头部 */
-        .header {
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
             text-align: center;
-            padding: 4rem 0 3rem;
-            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
-            margin-bottom: 3rem;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        
-        .logo {
-            font-size: 4rem;
-            font-weight: 700;
-            letter-spacing: -2px;
-            margin-bottom: 1rem;
-            line-height: 1;
-        }
-        
-        .logo-bot {
-            color: var(--neural-blue);
-            display: inline-block;
-            animation: botFloat 4s infinite ease-in-out;
-        }
-        
-        .logo-op {
-            color: var(--minimal-white);
-            display: inline-block;
-        }
-        
-        .logo-x {
-            color: var(--accent-orange);
-            display: inline-block;
-            animation: xPulse 3s infinite alternate;
-        }
-        
-        @keyframes botFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-        
-        @keyframes xPulse {
-            0% { opacity: 1; }
-            100% { opacity: 0.7; }
-        }
-        
-        .domain-stats {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: rgba(240, 240, 240, 0.6);
-            letter-spacing: 1px;
-            margin-top: 1rem;
-        }
-        
-        /* 核心公式 */
-        .core-formula {
-            text-align: center;
-            margin: 3rem 0;
-            padding: 2rem;
-        }
-        
-        .formula {
-            font-size: 1.5rem;
-            font-family: 'JetBrains Mono', monospace;
-            background: rgba(26, 26, 46, 0.5);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 3px solid var(--neural-blue);
-            border-right: 3px solid var(--protocol-purple);
-        }
-        
-        .formula-part {
-            padding: 0.3rem 0.5rem;
-            border-radius: 4px;
-        }
-        
-        .bot-part {
-            color: var(--neural-blue);
-        }
-        
-        .op-part {
-            color: var(--minimal-white);
-        }
-        
-        .x-part {
-            color: var(--accent-orange);
-        }
-        
-        .formula-plus {
-            margin: 0 0.5rem;
-            opacity: 0.5;
-        }
-        
-        /* 协议部分 */
-        .protocol-section {
-            margin: 3rem 0;
-            padding: 2.5rem;
-            background: rgba(26, 26, 46, 0.4);
-            border-radius: 12px;
-            border: 1px solid rgba(157, 0, 255, 0.1);
-            position: relative;
-        }
-        
-        .protocol-section::before {
-            content: 'X402';
-            position: absolute;
-            top: -12px;
-            left: 2rem;
-            background: var(--protocol-purple);
-            color: var(--minimal-white);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            padding: 0.3rem 1rem;
-            border-radius: 12px;
-            letter-spacing: 2px;
-        }
-        
-        .protocol-title {
+
+        .price { font-size: 2.5rem; color: #fff; font-weight: bold; margin-bottom: 0.5rem; }
+        .installment { color: #aaa; font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+        .btn-buy {
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
             font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--neural-blue);
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
         }
-        
-        .protocol-desc {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: rgba(240, 240, 240, 0.8);
-            margin-bottom: 1.5rem;
+        .btn-buy:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px var(--primary);
         }
-        
-        /* 简约功能网格 */
+
+        .contact-link {
+            display: block;
+            margin-top: 15px;
+            color: #aaa;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-decoration: underline;
+        }
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none;
+            font-weight: bold;
+        }
+
+        /* --- Grid Section --- */
         .features {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 4rem 0;
+            gap: 20px;
         }
+        .card {
+            background: #0f0f1a;
+            border: 1px solid #1f1f2e;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: 0.3s;
+        }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .card h3 { font-size: 1rem; color: #e0e0e0; }
+
+        /* --- CSS Animations for Icons (No Emoji) --- */
+        .icon { width: 40px; height: 40px; position: relative; }
         
-        .feature {
+        /* 1. Web3 */
+        .i-web3 div { width: 100%; height: 100%; border: 2px solid var(--primary); border-radius: 50%; border-style: dashed; animation: spin 4s linear infinite; }
+        /* 2. Robotics */
+        .i-robot div { width: 20px; height: 20px; background: var(--secondary); margin: 10px; animation: blinkBox 1s infinite; }
+        /* 3. AI Ops */
+        .i-ai div { width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 20px solid var(--accent); margin: 10px; animation: float 2s infinite; }
+        /* 4. Trading */
+        .i-trade div { width: 5px; height: 20px; background: #0f0; margin: 10px 15px; box-shadow: 10px -5px #0f0, -10px 5px #f00; animation: barUp 1s infinite alternate; }
+        /* 5. Security */
+        .i-sec div { width: 20px; height: 20px; border: 2px solid #fff; transform: rotate(45deg); margin: 10px; animation: pulseBorder 2s infinite; }
+        /* 6. Logistics */
+        .i-log div { width: 30px; height: 15px; border: 2px solid var(--primary); margin-top: 12px; animation: slideRight 2s infinite; }
+        /* 7. Metaverse */
+        .i-meta div { width: 30px; height: 20px; border-radius: 10px; border: 2px solid var(--secondary); margin: 10px 5px; animation: glitch 2s infinite; }
+        /* 8. IoT */
+        .i-iot div { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; box-shadow: 10px 0 var(--accent), -10px 0 var(--accent); margin: 17px 15px; animation: connect 1.5s infinite; }
+        /* 9. Space */
+        .i-space div { width: 10px; height: 10px; background: #fff; border-radius: 50%; margin: 15px; box-shadow: 0 0 10px #fff; animation: orbit 3s linear infinite; }
+        /* 10. Medical */
+        .i-med div { width: 10px; height: 30px; background: #ff0055; margin: 5px 15px; position: relative; }
+        .i-med div::after { content:''; position: absolute; width: 30px; height: 10px; background: #ff0055; top: 10px; left: -10px; }
+        /* 11. Chatbots */
+        .i-chat div { width: 30px; height: 20px; border: 2px solid #fff; border-radius: 5px 5px 0 5px; margin: 10px 5px; animation: typing 1s infinite; }
+        /* 12. Neural */
+        .i-neural div { width: 30px; height: 30px; border: 1px solid var(--primary); transform: rotate(45deg); animation: spin 2s infinite reverse; }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes blinkBox { 50% { opacity: 0.3; } }
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+        @keyframes barUp { to { height: 30px; margin-top: 0; } }
+        @keyframes pulseBorder { 0% { transform: rotate(45deg) scale(0.8); } 100% { transform: rotate(45deg) scale(1.1); opacity: 0; } }
+        @keyframes slideRight { 0% { transform: translateX(-10px); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateX(10px); opacity: 0; } }
+        @keyframes connect { 0% { opacity: 0.2; } 50% { opacity: 1; } 100% { opacity: 0.2; } }
+
+        footer {
+            text-align: center;
             padding: 2rem;
-            background: rgba(26, 26, 46, 0.3);
-            border-radius: 8px;
-            border: 1px solid rgba(0, 217, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .feature:hover {
-            transform: translateY(-5px);
-            border-color: var(--neural-blue);
-            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.1);
-        }
-        
-        .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--neural-blue);
-        }
-        
-        .feature-title {
-            font-size: 1.1rem;
-            margin-bottom: 0.8rem;
-            color: var(--minimal-white);
-        }
-        
-        .feature-desc {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: rgba(240, 240, 240, 0.6);
-        }
-        
-        /* 简约价格部分 */
-        .pricing {
-            margin: 4rem 0;
-            padding: 2.5rem;
-            background: rgba(10, 10, 15, 0.8);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 94, 0, 0.2);
-            text-align: center;
-        }
-        
-        .price-tag {
-            margin-bottom: 2rem;
-        }
-        
-        .total-price {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--accent-orange);
-            margin-bottom: 0.5rem;
-        }
-        
-        .price-note {
-            font-size: 0.9rem;
-            color: rgba(240, 240, 240, 0.5);
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        /* 三期付款 */
-        .payment-plan {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .payment-phase {
-            padding: 1.5rem;
-            background: rgba(26, 26, 46, 0.5);
-            border-radius: 8px;
-            border: 1px solid rgba(0, 217, 255, 0.1);
-        }
-        
-        .phase-number {
-            font-size: 0.9rem;
-            color: var(--neural-blue);
-            margin-bottom: 0.5rem;
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        .phase-amount {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--minimal-white);
-            margin-bottom: 0.5rem;
-        }
-        
-        .phase-desc {
+            color: #555;
             font-size: 0.8rem;
-            color: rgba(240, 240, 240, 0.5);
+            border-top: 1px solid #111;
         }
-        
-        /* CTA按钮 */
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(90deg, var(--neural-blue), var(--protocol-purple));
-            color: var(--cyber-black);
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 1rem 3rem;
-            border-radius: 6px;
-            text-decoration: none;
-            letter-spacing: 1px;
-            margin-top: 1.5rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 217, 255, 0.2);
-        }
-        
-        /* 联系方式 */
-        .contact-section {
-            margin: 4rem 0;
-            padding: 2.5rem;
-            background: rgba(26, 26, 46, 0.4);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 94, 0, 0.1);
-            text-align: center;
-        }
-        
-        .contact-title {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: var(--neural-blue);
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        .contact-email {
-            font-size: 1.3rem;
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent-orange);
-            background: rgba(255, 94, 0, 0.1);
-            padding: 1rem 2rem;
-            border-radius: 6px;
-            display: inline-block;
-            margin: 1rem 0;
-            text-decoration: none;
-            border: 1px solid rgba(255, 94, 0, 0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .contact-email:hover {
-            background: rgba(255, 94, 0, 0.2);
-            transform: scale(1.02);
-        }
-        
-        .contact-note {
-            margin-top: 1.5rem;
-            font-size: 0.8rem;
-            color: rgba(240, 240, 240, 0.4);
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        /* 极简页脚 */
-        .footer {
-            margin-top: 5rem;
-            padding: 2rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(26, 26, 46, 0.8);
-            color: rgba(240, 240, 240, 0.3);
-        }
-        
-        .footer-info {
-            font-size: 0.8rem;
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        .status-badge {
-            display: inline-block;
-            padding: 0.3rem 1rem;
-            background: rgba(0, 217, 255, 0.1);
-            color: var(--neural-blue);
-            border-radius: 12px;
-            font-size: 0.7rem;
-            margin-left: 1rem;
-        }
-        
-        /* 响应式 */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .logo {
-                font-size: 3rem;
-            }
-            
-            .payment-plan {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .features {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-email {
-                font-size: 1rem;
-                padding: 0.8rem 1.5rem;
-                word-break: break-all;
-            }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
-    <div class="minimal-grid"></div>
-    <div class="protocol-glow"></div>
-    
-    <div class="container">
-        <header class="header">
-            <div class="logo">
-                <span class="logo-bot">BOT</span><span class="logo-op">OP</span><span class="logo-x">X</span>
-            </div>
-            <div class="domain-stats">
-                6-CHAR DOMAIN • BOT + OP + X • AI-BLOCKCHAIN PROTOCOL
-            </div>
-        </header>
+
+    <header>
+        <!-- Canvas Background for Particle Robot -->
+        <canvas id="robotCanvas"></canvas>
+
+        <h1 class="hero-title">
+            <span class="text-botop">BOTOP</span>
+            <span class="text-x">X</span>
+            <span class="text-com">.com</span>
+        </h1>
         
-        <main>
-            <section class="core-formula">
-                <div class="formula">
-                    <span class="formula-part bot-part">BOT</span>
-                    <span class="formula-plus">+</span>
-                    <span class="formula-part op-part">OPTIMIZATION</span>
-                    <span class="formula-plus">+</span>
-                    <span class="formula-part x-part">X402</span>
-                </div>
-            </section>
+        <p style="margin-top: 10px; color: #888; font-family: monospace;">[ BOT OPERATIONS X | BOT TOP X ]</p>
+
+        <div class="pricing-card">
+            <div class="price">$1,800 USD</div>
+            <div class="installment">Available in 6 monthly installments</div>
             
-            <section class="protocol-section">
-                <div class="protocol-title">MINIMALIST AI-BLOCKCHAIN INTERFACE</div>
-                <div class="protocol-desc">
-                    BOTOPX represents the convergence of autonomous trading agents, 
-                    blockchain optimization protocols, and the X402 execution layer. 
-                    A 6-character domain for maximum brand efficiency in the AI-blockchain era.
-                </div>
-            </section>
+            <a href="https://www.spaceship.com/s/buy/botopx.com/YzfWMWvPiJPIlVxD" target="_blank" class="btn-buy">
+                Buy Now 🚀
+            </a>
             
-            <section class="features">
-                <div class="feature">
-                    <div class="feature-icon">⚡</div>
-                    <div class="feature-title">MINIMAL OVERHEAD</div>
-                    <div class="feature-desc">
-                        6-character domain reduces cognitive load and increases brand recall. 
-                        Perfect for AI agents and blockchain protocols requiring minimal latency.
-                    </div>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🔗</div>
-                    <div class="feature-title">X402 READY</div>
-                    <div class="feature-desc">
-                        Pre-configured for X402 protocol integration. 
-                        Enables trustless AI execution and on-chain optimization.
-                    </div>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🤖</div>
-                    <div class="feature-title">BOT-FIRST DESIGN</div>
-                    <div class="feature-desc">
-                        Domain structure optimized for AI recognition and parsing. 
-                        Designed for the age of autonomous trading agents.
-                    </div>
-                </div>
-            </section>
-            
-            <section class="pricing">
-                <div class="price-tag">
-                    <div class="total-price">$16,800</div>
-                    <div class="price-note">STRATEGIC PRICING FOR 6-CHAR .COM DOMAIN</div>
-                </div>
-                
-                <div class="price-note" style="margin-bottom: 1.5rem;">
-                    3-PHASE PAYMENT PLAN AVAILABLE (SIMPLIFIED EXECUTION)
-                </div>
-                
-                <div class="payment-plan">
-                    <div class="payment-phase">
-                        <div class="phase-number">PHASE 01</div>
-                        <div class="phase-amount">$5,600</div>
-                        <div class="phase-desc">Initial transfer & domain lock</div>
-                    </div>
-                    <div class="payment-phase">
-                        <div class="phase-number">PHASE 02</div>
-                        <div class="phase-amount">$5,600</div>
-                        <div class="phase-desc">Protocol configuration</div>
-                    </div>
-                    <div class="payment-phase">
-                        <div class="phase-number">PHASE 03</div>
-                        <div class="phase-amount">$5,600</div>
-                        <div class="phase-desc">Final transfer & documentation</div>
-                    </div>
-                </div>
-                
-                <button class="cta-button" id="acquireButton">
-                    INITIATE ACQUISITION
-                </button>
-            </section>
-            
-            <section class="contact-section" id="contact">
-                <div class="contact-title">PROTOCOL COMMUNICATION CHANNEL</div>
-                <div class="contact-email" id="emailDisplay">
-                    JOSHUA369X@GMAIL.COM
-                </div>
-                <div class="contact-note">
-                    ENCRYPTED • 24H RESPONSE • MINIMAL PROTOCOL
-                </div>
-            </section>
-        </main>
-        
-        <footer class="footer">
-            <div class="footer-info">
-                BOTOPX.COM | AI-BLOCKCHAIN MINIMALIST PROTOCOL
-                <span class="status-badge">X402 ACTIVE</span>
+            <div class="contact-link" onclick="copyEmail()">
+                Contact: joshua369x@gmail.com
             </div>
-        </footer>
-    </div>
+        </div>
+    </header>
+
+    <section class="features">
+        <h2 style="text-align: center; margin-bottom: 30px; text-transform: uppercase; color: #666;">Future Applications</h2>
+        <div class="grid">
+            <!-- 12 Fields with Web3 & Robotics included -->
+            <div class="card"><div class="icon i-web3"><div></div></div><h3>Web3 Autonomous Agents</h3></div>
+            <div class="card"><div class="icon i-robot"><div></div></div><h3>Industrial Robotics (OpX)</h3></div>
+            <div class="card"><div class="icon i-trade"><div></div></div><h3>AI Trading Bots</h3></div>
+            <div class="card"><div class="icon i-ai"><div></div></div><h3>Top Tier AI Operations</h3></div>
+            <div class="card"><div class="icon i-sec"><div></div></div><h3>Security & Defense Drones</h3></div>
+            <div class="card"><div class="icon i-log"><div></div></div><h3>Smart Logistics Grid</h3></div>
+            <div class="card"><div class="icon i-meta"><div></div></div><h3>Metaverse Avatars</h3></div>
+            <div class="card"><div class="icon i-iot"><div></div></div><h3>IoT Fleet Management</h3></div>
+            <div class="card"><div class="icon i-space"><div></div></div><h3>Space Exploration Bots</h3></div>
+            <div class="card"><div class="icon i-med"><div></div></div><h3>Medical Surgery Bots</h3></div>
+            <div class="card"><div class="icon i-chat"><div></div></div><h3>Next-Gen Customer Support</h3></div>
+            <div class="card"><div class="icon i-neural"><div></div></div><h3>Neural Network Nodes</h3></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Disclaimer: This site is for the sale of the domain name 'botopx.com' only. It is not affiliated with any specific company, trademark, or existing entity. Use of names is for descriptive purposes of potential use cases.</p>
+        <p>&copy; 2024 BotopX. All Rights Reserved.</p>
+    </footer>
+
+    <div id="toast" class="toast">Email Copied to Clipboard!</div>
 
     <script>
-        // 简约的交互效果
-        const acquireButton = document.getElementById('acquireButton');
-        const emailDisplay = document.getElementById('emailDisplay');
-        
-        // 按钮交互
-        acquireButton.addEventListener('click', function() {
-            const originalText = this.textContent;
-            this.textContent = 'CONNECTING TO X402...';
-            this.style.background = 'linear-gradient(90deg, var(--protocol-purple), var(--accent-orange))';
-            
-            setTimeout(() => {
-                this.textContent = 'INITIATING 3-PHASE PROTOCOL...';
-                
-                setTimeout(() => {
-                    window.location.href = 'mailto:joshua369x@gmail.com?subject=Botopx.com%20Domain%20Acquisition&body=I%27m%20interested%20in%20acquiring%20Botopx.com%20for%20%2416,800%20via%20the%203-phase%20payment%20plan.%20Please%20provide%20details.';
-                    
-                    setTimeout(() => {
-                        this.textContent = originalText;
-                        this.style.background = 'linear-gradient(90deg, var(--neural-blue), var(--protocol-purple))';
-                    }, 2000);
-                }, 1000);
-            }, 1000);
-        });
-        
-        // 邮箱复制功能
-        emailDisplay.addEventListener('click', function() {
-            const originalText = this.textContent;
-            this.textContent = 'COPIED TO CLIPBOARD ✓';
-            this.style.background = 'rgba(0, 255, 136, 0.2)';
-            this.style.color = '#00ff88';
-            
-            navigator.clipboard.writeText('joshua369x@gmail.com').then(() => {
-                setTimeout(() => {
-                    this.textContent = originalText;
-                    this.style.background = 'rgba(255, 94, 0, 0.1)';
-                    this.style.color = 'var(--accent-orange)';
-                }, 1500);
+        // --- Copy Email Function ---
+        function copyEmail() {
+            const email = "joshua369x@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const toast = document.getElementById("toast");
+                toast.style.display = "block";
+                toast.innerText = email + " copied!";
+                setTimeout(() => { toast.style.display = "none"; }, 2000);
             });
-        });
+        }
+
+        // --- Particle Beam Robot Animation ---
+        const canvas = document.getElementById('robotCanvas');
+        const ctx = canvas.getContext('2d');
         
-        // 简约的键盘快捷键
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'x' || e.key === 'X') {
-                // 添加简约的视觉反馈
-                document.querySelector('.logo-x').style.transform = 'scale(1.2)';
-                setTimeout(() => {
-                    document.querySelector('.logo-x').style.transform = 'scale(1)';
-                }, 300);
+        let width, height;
+        let particles = [];
+        
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.reset();
             }
-        });
-        
-        // 页面加载效果
-        window.addEventListener('load', () => {
-            document.querySelector('.logo').style.opacity = '1';
-            document.querySelector('.logo').style.transform = 'translateY(0)';
+
+            reset() {
+                // Spawn particles near the center (Robot Head area)
+                this.x = width / 2 + (Math.random() - 0.5) * 100;
+                this.y = height / 2 - 50 + (Math.random() - 0.5) * 100;
+                
+                // Beam direction (Outward/Upward energy)
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 2 + 0.5;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed - 1; // Slight upward drift
+                
+                this.life = Math.random() * 100;
+                this.opacity = Math.random();
+                this.size = Math.random() * 2;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.life--;
+                
+                // Draw eyes glow
+                const distToLeftEye = Math.hypot(this.x - (width/2 - 30), this.y - (height/2 - 50));
+                const distToRightEye = Math.hypot(this.x - (width/2 + 30), this.y - (height/2 - 50));
+                
+                if (distToLeftEye < 20 || distToRightEye < 20) {
+                    this.opacity = 1;
+                    this.color = '#00f3ff'; // Eye color
+                } else {
+                    this.color = '#ffffff';
+                }
+
+                if (this.life <= 0) this.reset();
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = this.opacity * (this.life / 100);
+                ctx.fill();
+            }
+        }
+
+        // Create particles
+        for (let i = 0; i < 150; i++) {
+            particles.push(new Particle());
+        }
+
+        function drawRobotOutline() {
+            ctx.strokeStyle = "rgba(0, 243, 255, 0.1)"; // Faint outline
+            ctx.lineWidth = 2;
+            const cx = width / 2;
+            const cy = height / 2 - 50;
             
-            // 延迟显示特性卡片
-            const features = document.querySelectorAll('.feature');
-            features.forEach((feature, index) => {
-                setTimeout(() => {
-                    feature.style.opacity = '1';
-                    feature.style.transform = 'translateY(0)';
-                }, 200 + index * 100);
+            // Abstract Head Shape
+            ctx.beginPath();
+            ctx.moveTo(cx - 60, cy - 80); // Top Left
+            ctx.lineTo(cx + 60, cy - 80); // Top Right
+            ctx.lineTo(cx + 50, cy + 60); // Chin Right
+            ctx.lineTo(cx - 50, cy + 60); // Chin Left
+            ctx.closePath();
+            ctx.stroke();
+
+            // Beam / Scanner Line
+            const time = Date.now() * 0.002;
+            const scanY = cy - 80 + (Math.sin(time) * 0.5 + 0.5) * 140;
+            
+            ctx.strokeStyle = "rgba(255, 0, 0, 0.5)";
+            ctx.beginPath();
+            ctx.moveTo(cx - 60, scanY);
+            ctx.lineTo(cx + 60, scanY);
+            ctx.stroke();
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            // Draw schematic lines
+            drawRobotOutline();
+            
+            // Update particles
+            particles.forEach(p => {
+                p.update();
+                p.draw();
             });
-        });
+
+            // Draw Beam glow center
+            const gradient = ctx.createRadialGradient(width/2, height/2-50, 10, width/2, height/2-50, 200);
+            gradient.addColorStop(0, "rgba(0, 243, 255, 0.05)");
+            gradient.addColorStop(1, "rgba(0,0,0,0)");
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
     </script>
 </body>
 </html>
