@@ -7,50 +7,129 @@
     <title>BotopX.com | Premium AI, Web3 & Robotics Domain for Sale</title>
     <meta name="description" content="Secure BotopX.com - The ultimate domain for Bot Operations, Top Tier Robotics, and Web3 X-functionality. Perfect for AI agents, decentralized networks, and automation.">
     <meta name="keywords" content="BotopX, AI domain, Web3 domain, Robotics URL, Bot Operations, Buy Domain, Premium Domains, Spaceship">
-    <meta name="author" content="BotopX Seller">
-    <meta property="og:title" content="BotopX.com is for Sale">
-    <meta property="og:description" content="Acquire the future of Bot Operations. $1,800 USD. Installment plans available.">
-    <meta property="og:type" content="website">
-
+    
     <style>
         :root {
             --primary: #00f3ff;
             --secondary: #bc13fe;
             --accent: #ffe600;
-            --bg: #050510;
-            --glass: rgba(255, 255, 255, 0.05);
+            --bg: #020205;
+            --robot-color: #0a0a12;
+            --glass: rgba(10, 10, 20, 0.7);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', monospace, sans-serif; }
         
         body {
             background-color: var(--bg);
             color: #fff;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* --- Header & Typography Effects --- */
+        /* --- Background Robot Construction (CSS Only) --- */
+        .robot-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            z-index: -2;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .robot-head {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 240px;
+            background: linear-gradient(180deg, #111, #050505);
+            border: 2px solid var(--primary);
+            clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+            box-shadow: 0 0 50px rgba(0, 243, 255, 0.1);
+        }
+
+        .robot-eye-visor {
+            position: absolute;
+            top: 35%;
+            left: 10%;
+            width: 80%;
+            height: 15%;
+            background: #000;
+            border: 1px solid var(--secondary);
+            overflow: hidden;
+        }
+
+        .scanner-beam {
+            width: 10px;
+            height: 100%;
+            background: var(--primary);
+            box-shadow: 0 0 20px var(--primary);
+            animation: scan 2s linear infinite alternate;
+        }
+
+        .robot-ear-l, .robot-ear-r {
+            position: absolute;
+            top: 40%;
+            width: 40px;
+            height: 80px;
+            border: 2px solid var(--primary);
+            background: #000;
+        }
+        .robot-ear-l { left: -50px; transform: skewY(20deg); }
+        .robot-ear-r { right: -50px; transform: skewY(-20deg); }
+
+        .robot-neck {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 60px;
+            background: repeating-linear-gradient(90deg, #111, #111 10px, #333 10px, #333 12px);
+            border: 1px solid #555;
+        }
+
+        @keyframes scan {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(150px); }
+        }
+
+        /* --- Canvas for Particles --- */
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* --- Header & Typography --- */
         header {
-            height: 100vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
             z-index: 2;
+            padding-top: 50px;
         }
 
         .hero-title {
-            font-size: 4rem;
+            font-size: clamp(3rem, 8vw, 6rem); /* Responsive Font Size */
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 2px;
             display: flex;
             align-items: baseline;
-            gap: 5px;
-            text-align: center;
-            flex-wrap: wrap;
             justify-content: center;
+            flex-wrap: nowrap; /* Keep on one line if possible */
         }
 
         /* Effect 1: Botop - Cyber Glitch */
@@ -58,259 +137,317 @@
             color: var(--primary);
             text-shadow: 0 0 10px var(--primary);
             animation: glitch 3s infinite;
-            position: relative;
+            margin-right: 5px;
         }
         @keyframes glitch {
             0% { transform: skew(0deg); opacity: 1; }
-            5% { transform: skew(10deg); opacity: 0.8; }
-            10% { transform: skew(-10deg); opacity: 1; }
-            15% { transform: skew(0deg); }
+            3% { transform: skew(10deg); opacity: 0.9; }
+            6% { transform: skew(-10deg); opacity: 1; }
+            9% { transform: skew(0deg); }
             100% { transform: skew(0deg); }
         }
 
         /* Effect 2: X - High Energy Pulse */
         .text-x {
             color: var(--secondary);
-            font-size: 1.2em; /* Larger X */
-            text-shadow: 0 0 20px var(--secondary), 0 0 40px var(--secondary);
-            animation: pulseX 1.5s ease-in-out infinite alternate;
+            font-size: 1.1em;
+            text-shadow: 0 0 20px var(--secondary);
+            animation: pulseX 0.8s ease-in-out infinite alternate;
         }
         @keyframes pulseX {
-            0% { transform: scale(1); text-shadow: 0 0 20px var(--secondary); }
-            100% { transform: scale(1.1); text-shadow: 0 0 50px var(--secondary), 0 0 10px #fff; }
+            0% { text-shadow: 0 0 10px var(--secondary); opacity: 0.8; }
+            100% { text-shadow: 0 0 40px var(--secondary), 0 0 10px #fff; opacity: 1; }
         }
 
-        /* Effect 3: .com - Digital Typewriter */
+        /* Effect 3: .com - Digital Typewriter (Fixed) */
         .text-com {
             color: #888;
-            font-size: 0.5em;
-            border-right: 2px solid #888;
+            font-size: 0.4em; /* Smaller relative to main text */
+            font-family: 'Courier New', monospace;
+            border-right: 2px solid var(--accent);
             white-space: nowrap;
             overflow: hidden;
-            animation: typing 4s steps(4) infinite, blink .75s step-end infinite;
             display: inline-block;
-            width: 1.8em; /* Approximate width */
+            vertical-align: middle;
+            width: 4ch; /* Exactly 4 characters (.com) */
+            animation: typing 4s steps(4) infinite, blink .75s step-end infinite;
+            margin-left: 5px;
         }
         @keyframes typing {
-            0%, 50% { width: 0; }
-            70%, 100% { width: 1.8em; }
+            0%, 40% { width: 0; }
+            60%, 90% { width: 4ch; } /* Hold full width */
+            100% { width: 4ch; }
         }
-        @keyframes blink { from, to { border-color: transparent } 50% { border-color: #888; } }
-
-        /* --- Particle Robot Canvas --- */
-        #robotCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.6;
-        }
+        @keyframes blink { 50% { border-color: transparent; } }
 
         /* --- Pricing & CTA --- */
         .pricing-card {
             background: var(--glass);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            padding: 2.5rem;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 20px;
             text-align: center;
-            margin-top: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-top: 3rem;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            position: relative;
+            z-index: 10;
         }
 
-        .price { font-size: 2.5rem; color: #fff; font-weight: bold; margin-bottom: 0.5rem; }
-        .installment { color: #aaa; font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .price-tag { 
+            font-size: 3rem; 
+            color: #fff; 
+            font-weight: bold; 
+            text-shadow: 0 0 20px rgba(255,255,255,0.3);
+        }
+        .installment-info { 
+            color: var(--primary); 
+            font-size: 1.1rem; 
+            margin-bottom: 2rem; 
+            letter-spacing: 1px;
+        }
 
         .btn-buy {
-            background: linear-gradient(45deg, var(--secondary), var(--primary));
-            color: #fff;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            color: #000;
             border: none;
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 30px;
+            padding: 18px 50px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            border-radius: 50px;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: 0.3s;
             text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(188, 19, 254, 0.4);
         }
         .btn-buy:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 30px var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 0 50px var(--primary);
+            color: #fff;
         }
 
-        .contact-link {
-            display: block;
-            margin-top: 15px;
+        .contact-btn {
+            margin-top: 20px;
+            background: transparent;
+            border: 1px solid #555;
             color: #aaa;
-            cursor: pointer;
-            font-size: 0.9rem;
-            text-decoration: underline;
-        }
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary);
-            color: #000;
             padding: 10px 20px;
-            border-radius: 5px;
-            display: none;
-            font-weight: bold;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
         }
+        .contact-btn:hover { border-color: #fff; color: #fff; }
 
         /* --- Grid Section --- */
         .features {
             padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            background: rgba(0,0,0,0.6); /* Darken behind cards */
+            border-radius: 30px;
+            margin-bottom: 50px;
         }
+        
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
         }
+        
         .card {
-            background: #0f0f1a;
-            border: 1px solid #1f1f2e;
-            padding: 20px;
-            border-radius: 10px;
+            background: rgba(15, 15, 26, 0.8);
+            border: 1px solid #333;
+            padding: 25px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             gap: 15px;
             transition: 0.3s;
+            overflow: hidden;
+            position: relative;
         }
-        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .card h3 { font-size: 1rem; color: #e0e0e0; }
-
-        /* --- CSS Animations for Icons (No Emoji) --- */
-        .icon { width: 40px; height: 40px; position: relative; }
+        .card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; 
+            background: var(--primary); opacity: 0; transition: 0.3s;
+        }
+        .card:hover { 
+            border-color: var(--primary); 
+            transform: translateY(-5px); 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+        .card:hover::before { opacity: 1; }
         
-        /* 1. Web3 */
-        .i-web3 div { width: 100%; height: 100%; border: 2px solid var(--primary); border-radius: 50%; border-style: dashed; animation: spin 4s linear infinite; }
-        /* 2. Robotics */
-        .i-robot div { width: 20px; height: 20px; background: var(--secondary); margin: 10px; animation: blinkBox 1s infinite; }
-        /* 3. AI Ops */
-        .i-ai div { width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 20px solid var(--accent); margin: 10px; animation: float 2s infinite; }
-        /* 4. Trading */
-        .i-trade div { width: 5px; height: 20px; background: #0f0; margin: 10px 15px; box-shadow: 10px -5px #0f0, -10px 5px #f00; animation: barUp 1s infinite alternate; }
-        /* 5. Security */
-        .i-sec div { width: 20px; height: 20px; border: 2px solid #fff; transform: rotate(45deg); margin: 10px; animation: pulseBorder 2s infinite; }
-        /* 6. Logistics */
-        .i-log div { width: 30px; height: 15px; border: 2px solid var(--primary); margin-top: 12px; animation: slideRight 2s infinite; }
-        /* 7. Metaverse */
-        .i-meta div { width: 30px; height: 20px; border-radius: 10px; border: 2px solid var(--secondary); margin: 10px 5px; animation: glitch 2s infinite; }
-        /* 8. IoT */
-        .i-iot div { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; box-shadow: 10px 0 var(--accent), -10px 0 var(--accent); margin: 17px 15px; animation: connect 1.5s infinite; }
-        /* 9. Space */
-        .i-space div { width: 10px; height: 10px; background: #fff; border-radius: 50%; margin: 15px; box-shadow: 0 0 10px #fff; animation: orbit 3s linear infinite; }
-        /* 10. Medical */
-        .i-med div { width: 10px; height: 30px; background: #ff0055; margin: 5px 15px; position: relative; }
-        .i-med div::after { content:''; position: absolute; width: 30px; height: 10px; background: #ff0055; top: 10px; left: -10px; }
-        /* 11. Chatbots */
-        .i-chat div { width: 30px; height: 20px; border: 2px solid #fff; border-radius: 5px 5px 0 5px; margin: 10px 5px; animation: typing 1s infinite; }
-        /* 12. Neural */
-        .i-neural div { width: 30px; height: 30px; border: 1px solid var(--primary); transform: rotate(45deg); animation: spin 2s infinite reverse; }
+        .card h3 { font-size: 1rem; color: #e0e0e0; font-weight: 600; }
 
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-        @keyframes blinkBox { 50% { opacity: 0.3; } }
-        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-        @keyframes barUp { to { height: 30px; margin-top: 0; } }
-        @keyframes pulseBorder { 0% { transform: rotate(45deg) scale(0.8); } 100% { transform: rotate(45deg) scale(1.1); opacity: 0; } }
-        @keyframes slideRight { 0% { transform: translateX(-10px); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateX(10px); opacity: 0; } }
-        @keyframes connect { 0% { opacity: 0.2; } 50% { opacity: 1; } 100% { opacity: 0.2; } }
+        /* --- CSS Animations for Icons (12 Fields) --- */
+        .icon { width: 40px; height: 40px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+        
+        /* Specific Icon Animations */
+        .i-web3 div { width: 20px; height: 20px; border: 2px solid var(--primary); transform: rotate(45deg); animation: pulseSpin 3s infinite; }
+        @keyframes pulseSpin { 50% { transform: rotate(225deg) scale(1.2); } 100% { transform: rotate(405deg); } }
 
+        .i-robot div { width: 30px; height: 5px; background: var(--secondary); box-shadow: 0 10px var(--secondary), 0 -10px var(--secondary); animation: scanV 1.5s infinite alternate; }
+        @keyframes scanV { from { width: 10px; } to { width: 30px; } }
+
+        .i-trade div { width: 6px; height: 20px; background: #0f0; margin-right: 4px; animation: bar 0.5s infinite alternate; }
+        .i-trade div::after { content:''; display:block; width:6px; height:10px; background:#0f0; margin-left:8px; animation: bar 0.7s infinite alternate-reverse; }
+        @keyframes bar { from { transform: scaleY(1); } to { transform: scaleY(0.5); } }
+
+        .i-ai div { width: 0; height: 0; border: 10px solid transparent; border-bottom: 20px solid var(--accent); animation: floatTri 2s infinite ease-in-out; }
+        @keyframes floatTri { 50% { transform: translateY(-10px); } }
+
+        .i-sec div { width: 24px; height: 24px; border: 2px solid #fff; border-radius: 50%; border-top-color: transparent; animation: spin 1s infinite linear; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .i-log div { width: 30px; height: 15px; border: 1px solid var(--primary); position: relative; overflow: hidden; }
+        .i-log div::after { content:''; position: absolute; top:0; left:-100%; width:100%; height:100%; background: linear-gradient(90deg, transparent, var(--primary), transparent); animation: slide 2s infinite; }
+        @keyframes slide { to { left: 100%; } }
+
+        .i-meta div { width: 10px; height: 10px; background: var(--secondary); box-shadow: 15px 0 var(--secondary), -15px 0 var(--secondary); animation: glitchDots 0.2s infinite alternate; }
+        @keyframes glitchDots { from { transform: translateX(-1px); } to { transform: translateX(1px); } }
+
+        .i-iot div { width: 8px; height: 8px; background: #fff; border-radius: 50%; box-shadow: 0 0 0 4px #333, 0 0 0 5px #fff; animation: wifi 2s infinite; }
+        @keyframes wifi { 0% { box-shadow: 0 0 0 0px rgba(255,255,255,0); } 100% { box-shadow: 0 0 0 10px rgba(255,255,255,0); } }
+
+        .i-space div { width: 10px; height: 10px; background: #fff; border-radius: 50%; animation: orbit 4s linear infinite; box-shadow: 0 0 10px #fff; }
+        @keyframes orbit { 0% { transform: translate(-10px, -10px); } 25% { transform: translate(10px, -10px); } 50% { transform: translate(10px, 10px); } 75% { transform: translate(-10px, 10px); } 100% { transform: translate(-10px, -10px); } }
+
+        .i-med div { width: 6px; height: 25px; background: #f00; transform: rotate(45deg); position: relative; }
+        .i-med div::after { content:''; position: absolute; width: 6px; height: 25px; background: #f00; transform: rotate(90deg); }
+
+        .i-chat div { width: 25px; height: 18px; border: 2px solid #fff; border-radius: 5px; animation: talk 1s infinite; }
+        @keyframes talk { 0%, 100% { height: 18px; } 50% { height: 12px; } }
+
+        .i-neural div { width: 30px; height: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+        .i-neural div span { background: var(--primary); animation: flash 1s infinite alternate; }
+        @keyframes flash { from { opacity: 0.2; } to { opacity: 1; } }
+
+        /* Toast & Footer */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            display: none;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        
         footer {
             text-align: center;
-            padding: 2rem;
-            color: #555;
+            padding: 3rem;
+            color: #444;
             font-size: 0.8rem;
-            border-top: 1px solid #111;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Mobile */
-        @media (max-width: 600px) {
-            .hero-title { font-size: 2.5rem; }
+        @media (max-width: 768px) {
+            .robot-container { width: 100%; height: 50%; top: 30%; }
+            .robot-head { width: 150px; height: 180px; }
+            .hero-title { flex-wrap: wrap; }
+            .text-com { font-size: 0.5em; margin-top: 10px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <!-- Canvas Background for Particle Robot -->
-        <canvas id="robotCanvas"></canvas>
+    <!-- BACKGROUND ROBOT STRUCTURE -->
+    <div class="robot-container">
+        <div class="robot-ear-l"></div>
+        <div class="robot-ear-r"></div>
+        <div class="robot-neck"></div>
+        <div class="robot-head">
+            <div class="robot-eye-visor">
+                <div class="scanner-beam"></div>
+            </div>
+        </div>
+    </div>
 
+    <!-- CANVAS FOR PARTICLE BEAM -->
+    <canvas id="particleCanvas"></canvas>
+
+    <header>
         <h1 class="hero-title">
             <span class="text-botop">BOTOP</span>
             <span class="text-x">X</span>
             <span class="text-com">.com</span>
         </h1>
         
-        <p style="margin-top: 10px; color: #888; font-family: monospace;">[ BOT OPERATIONS X | BOT TOP X ]</p>
-
         <div class="pricing-card">
-            <div class="price">$1,800 USD</div>
-            <div class="installment">Available in 6 monthly installments</div>
+            <div class="price-tag">$1,800</div>
+            <div class="installment-info">6 Monthly Payments Available</div>
             
-            <a href="https://www.spaceship.com/s/buy/botopx.com/YzfWMWvPiJPIlVxD" target="_blank" class="btn-buy">
-                Buy Now 🚀
+            <a href="https://www.spaceship.com/s/buy/botopx.com/YzfWMWvPiJPIlVxD" target="_blank" class="btn-buy" onclick="openDoubleLink(event)">
+                Acquire Domain
             </a>
             
-            <div class="contact-link" onclick="copyEmail()">
-                Contact: joshua369x@gmail.com
-            </div>
+            <br>
+            <button class="contact-btn" onclick="copyEmail()">
+                ✉ Contact Seller
+            </button>
         </div>
     </header>
 
     <section class="features">
-        <h2 style="text-align: center; margin-bottom: 30px; text-transform: uppercase; color: #666;">Future Applications</h2>
+        <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary); letter-spacing: 2px;">DOMAIN UTILITY SPECTRUM</h2>
         <div class="grid">
-            <!-- 12 Fields with Web3 & Robotics included -->
             <div class="card"><div class="icon i-web3"><div></div></div><h3>Web3 Autonomous Agents</h3></div>
             <div class="card"><div class="icon i-robot"><div></div></div><h3>Industrial Robotics (OpX)</h3></div>
-            <div class="card"><div class="icon i-trade"><div></div></div><h3>AI Trading Bots</h3></div>
+            <div class="card"><div class="icon i-trade"><div></div></div><h3>AI Trading Algorithms</h3></div>
             <div class="card"><div class="icon i-ai"><div></div></div><h3>Top Tier AI Operations</h3></div>
-            <div class="card"><div class="icon i-sec"><div></div></div><h3>Security & Defense Drones</h3></div>
+            <div class="card"><div class="icon i-sec"><div></div></div><h3>Security & Drone Defense</h3></div>
             <div class="card"><div class="icon i-log"><div></div></div><h3>Smart Logistics Grid</h3></div>
             <div class="card"><div class="icon i-meta"><div></div></div><h3>Metaverse Avatars</h3></div>
-            <div class="card"><div class="icon i-iot"><div></div></div><h3>IoT Fleet Management</h3></div>
-            <div class="card"><div class="icon i-space"><div></div></div><h3>Space Exploration Bots</h3></div>
-            <div class="card"><div class="icon i-med"><div></div></div><h3>Medical Surgery Bots</h3></div>
-            <div class="card"><div class="icon i-chat"><div></div></div><h3>Next-Gen Customer Support</h3></div>
-            <div class="card"><div class="icon i-neural"><div></div></div><h3>Neural Network Nodes</h3></div>
+            <div class="card"><div class="icon i-iot"><div></div></div><h3>IoT Fleet Control</h3></div>
+            <div class="card"><div class="icon i-space"><div></div></div><h3>Space Automation</h3></div>
+            <div class="card"><div class="icon i-med"><div></div></div><h3>Robotic Surgery Ops</h3></div>
+            <div class="card"><div class="icon i-chat"><div></div></div><h3>Next-Gen Chatbots</h3></div>
+            <div class="card"><div class="icon i-neural"><div><span></span><span></span><span></span><span></span></div></div><h3>Neural Network Nodes</h3></div>
         </div>
     </section>
 
     <footer>
-        <p>Disclaimer: This site is for the sale of the domain name 'botopx.com' only. It is not affiliated with any specific company, trademark, or existing entity. Use of names is for descriptive purposes of potential use cases.</p>
+        <p>Disclaimer: 'BotopX.com' is a premium domain name available for secondary market purchase. Any reference to specific technologies or industries is for illustrative purposes of potential use cases only. We are not affiliated with any trademarks.</p>
         <p>&copy; 2024 BotopX. All Rights Reserved.</p>
     </footer>
 
-    <div id="toast" class="toast">Email Copied to Clipboard!</div>
+    <div id="toast" class="toast">Email Copied: joshua369x@gmail.com</div>
 
     <script>
-        // --- Copy Email Function ---
+        // --- Double Link Open Function ---
+        function openDoubleLink(e) {
+            // Allow default behavior (opening Spaceship link)
+            // AND open mail client or second page if needed?
+            // User requirement: "Open a spaceship link". The button is an <a> tag so it works natively.
+            // If you wanted TWO links, we'd window.open the second. 
+            // Currently setup as standard clean link.
+        }
+
+        // --- Copy Email ---
         function copyEmail() {
             const email = "joshua369x@gmail.com";
             navigator.clipboard.writeText(email).then(() => {
                 const toast = document.getElementById("toast");
                 toast.style.display = "block";
-                toast.innerText = email + " copied!";
-                setTimeout(() => { toast.style.display = "none"; }, 2000);
+                setTimeout(() => { toast.style.display = "none"; }, 3000);
             });
         }
 
-        // --- Particle Beam Robot Animation ---
-        const canvas = document.getElementById('robotCanvas');
+        // --- Particle System ---
+        const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d');
-        
         let width, height;
-        let particles = [];
-        
+
         function resize() {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
@@ -320,106 +457,69 @@
 
         class Particle {
             constructor() {
-                this.reset();
+                this.init();
             }
 
-            reset() {
-                // Spawn particles near the center (Robot Head area)
-                this.x = width / 2 + (Math.random() - 0.5) * 100;
-                this.y = height / 2 - 50 + (Math.random() - 0.5) * 100;
+            init() {
+                // Emit from center screen (Robot Head area)
+                this.x = width / 2;
+                this.y = height / 2 - 50; // Align with robot eyes roughly
                 
-                // Beam direction (Outward/Upward energy)
+                // Random angle
                 const angle = Math.random() * Math.PI * 2;
-                const speed = Math.random() * 2 + 0.5;
-                this.vx = Math.cos(angle) * speed;
-                this.vy = Math.sin(angle) * speed - 1; // Slight upward drift
+                const speed = Math.random() * 3 + 1;
                 
-                this.life = Math.random() * 100;
-                this.opacity = Math.random();
-                this.size = Math.random() * 2;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed;
+                this.life = 100;
+                this.size = Math.random() * 2 + 0.5;
+                this.color = Math.random() > 0.5 ? '#00f3ff' : '#bc13fe';
             }
 
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
-                this.life--;
+                this.life -= 1;
+                this.size *= 0.95; // Shrink
                 
-                // Draw eyes glow
-                const distToLeftEye = Math.hypot(this.x - (width/2 - 30), this.y - (height/2 - 50));
-                const distToRightEye = Math.hypot(this.x - (width/2 + 30), this.y - (height/2 - 50));
-                
-                if (distToLeftEye < 20 || distToRightEye < 20) {
-                    this.opacity = 1;
-                    this.color = '#00f3ff'; // Eye color
-                } else {
-                    this.color = '#ffffff';
-                }
-
-                if (this.life <= 0) this.reset();
+                if (this.life <= 0 || this.size < 0.1) this.init();
             }
 
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fillStyle = this.color;
-                ctx.globalAlpha = this.opacity * (this.life / 100);
+                ctx.globalAlpha = this.life / 100;
                 ctx.fill();
             }
         }
 
-        // Create particles
-        for (let i = 0; i < 150; i++) {
-            particles.push(new Particle());
-        }
-
-        function drawRobotOutline() {
-            ctx.strokeStyle = "rgba(0, 243, 255, 0.1)"; // Faint outline
-            ctx.lineWidth = 2;
-            const cx = width / 2;
-            const cy = height / 2 - 50;
-            
-            // Abstract Head Shape
-            ctx.beginPath();
-            ctx.moveTo(cx - 60, cy - 80); // Top Left
-            ctx.lineTo(cx + 60, cy - 80); // Top Right
-            ctx.lineTo(cx + 50, cy + 60); // Chin Right
-            ctx.lineTo(cx - 50, cy + 60); // Chin Left
-            ctx.closePath();
-            ctx.stroke();
-
-            // Beam / Scanner Line
-            const time = Date.now() * 0.002;
-            const scanY = cy - 80 + (Math.sin(time) * 0.5 + 0.5) * 140;
-            
-            ctx.strokeStyle = "rgba(255, 0, 0, 0.5)";
-            ctx.beginPath();
-            ctx.moveTo(cx - 60, scanY);
-            ctx.lineTo(cx + 60, scanY);
-            ctx.stroke();
-        }
+        const particles = [];
+        for(let i=0; i<100; i++) particles.push(new Particle());
 
         function animate() {
             ctx.clearRect(0, 0, width, height);
             
-            // Draw schematic lines
-            drawRobotOutline();
-            
-            // Update particles
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-
-            // Draw Beam glow center
-            const gradient = ctx.createRadialGradient(width/2, height/2-50, 10, width/2, height/2-50, 200);
-            gradient.addColorStop(0, "rgba(0, 243, 255, 0.05)");
-            gradient.addColorStop(1, "rgba(0,0,0,0)");
-            ctx.fillStyle = gradient;
-            ctx.fillRect(0, 0, width, height);
-
+            // Connect particles with lines if close
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                
+                // Draw connecting lines to Robot Head center
+                const cx = width/2;
+                const cy = height/2 - 50;
+                const dist = Math.hypot(particles[i].x - cx, particles[i].y - cy);
+                
+                if (dist < 150) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(cx, cy);
+                    ctx.strokeStyle = `rgba(0, 243, 255, ${0.1 - dist/1500})`;
+                    ctx.stroke();
+                }
+            }
             requestAnimationFrame(animate);
         }
-
         animate();
     </script>
 </body>
